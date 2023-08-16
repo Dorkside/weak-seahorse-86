@@ -55,7 +55,7 @@ router
 
     if (response.status === 200) {
       const { result } = await response.json();
-      context.repsonse.status = 200;
+      context.response.status = 200;
       context.response.body = result.nextQuestion;
     }
   })
