@@ -31,9 +31,7 @@
             "description": "Successful response",
             "content": {
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProductTypeResponse"
-                }
+                "schema": {}
               }
             }
           }
@@ -62,84 +60,6 @@
             }
           },
           "description": "An array that contain a list of variable and their value describing a claim situation"
-        }
-      },
-      "ProductTypeResponse": {
-        "type": "object",
-        "properties": {
-          "allowMultiplePerClaim": {
-            "type": "boolean"
-          },
-          "id": {
-            "type": "string"
-          },
-          "answers": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Answer"
-            }
-          },
-          "lineRef": {
-            "type": "string"
-          },
-          "metadata": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Metadata"
-            }
-          },
-          "possibleAnswers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "priority": {
-            "type": "integer"
-          },
-          "source": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string"
-          },
-          "order": {
-            "type": "integer"
-          }
-        }
-      },
-      "Answer": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "primaryKey": {
-            "type": "string"
-          },
-          "displayName": {
-            "type": "string"
-          },
-          "priority": {
-            "type": "integer"
-          },
-          "columns": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "Metadata": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
         }
       }
     }
