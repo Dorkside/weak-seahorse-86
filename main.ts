@@ -53,7 +53,7 @@ router
 
     console.log("response", response);
 
-    const { result } = await response.json();
+    const result = await response.json();
 
     console.log("result", result);
 
