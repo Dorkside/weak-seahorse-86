@@ -1,29 +1,18 @@
 import { Application, Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
-import data from "./data.json" assert { type: "json" };
+import openapi from "./openapi.json";
+import apiPlugin from "./api-plugin.json";
 
 const router = new Router();
 router
-  .get("/", (context) => {
-    context.response.body = "Welcome to dinosaur API!";
+  .get("/ask", (context) => {
+    context.response.body = "Situation is missing information. Does the user have EXTENDED_WARRANTY?";
   })
-  .get("/api", (context) => {
-    context.response.body = data;
+  .get("/openapi.json", (context) => {
+    context.response.body = openapi;
   })
-  .get("/api/:dinosaur", (context) => {
-    if (context?.params?.dinosaur) {
-      const found = data.find((item) =>
-        item.name.toLowerCase() === context.params.dinosaur.toLowerCase()
-      );
-      if (found) {
-        context.response.body = found;
-      } else {
-        context.response.body = "No dinosaurs found.";
-      }
-    }
-  })
-  .get("/.well-known/test.json", (context) => {
-    context.response.body = {"hey": "ho"}
+  .get("/.well-known/api-plugin.json", (context) => {
+    context.response.body = apiPlugin;
   })
 
 const app = new Application();
