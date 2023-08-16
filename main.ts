@@ -14,7 +14,9 @@ router
     }
     const requestBody = await context.request.body().value;
 
-    const situationArray = Object.entries(requestBody.situation[0]).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
+    console.log(requestBody.situation);
+
+    const situationArray = Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
 
     console.log("situationArray", situationArray);
 
