@@ -12,7 +12,7 @@ router
     if (!context.request.hasBody) {
       context.throw(415);
     }
-    const body = context.request.body();
+    const body = await context.request.body();
     if (body.type !== "json") {
       context.throw(415);
     }
