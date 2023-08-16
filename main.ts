@@ -14,6 +14,8 @@ router
     }
     const requestBody = await context.request.body().value;
 
+    const situationArray = Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
+
     const response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
       method: "POST",
       mode: "no-cors",
