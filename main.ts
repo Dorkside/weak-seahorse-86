@@ -24,6 +24,7 @@ router
         headers: {
           "Content-Type": "application/json",
           "x-api-key": "sJikTZ90JqzqpvIsarlIc7A3EtuyohHFrTTKcoJCBO4aGTvGwHplmo2k40bw",
+
         },
         body: JSON.stringify({
           "productId": "141434",
@@ -49,7 +50,7 @@ router
         })
       });
     } catch (error) {
-      context.throw(500);
+      context.throw(500, error);
     }
 
     if (response.status === 200) {
