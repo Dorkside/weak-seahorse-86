@@ -16,6 +16,8 @@ router
 
     const situationArray = Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
 
+    console.log("situationArray", situationArray);
+
     const response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
       method: "POST",
       mode: "no-cors",
@@ -36,7 +38,7 @@ router
               "state": [
                 { "id": "now", "value": 1692184507594, "order": -1 },
                 { "id": "today", "value": 1692144000000, "order": -1 },
-                ...(requestBody.situation.map(([key, value]) => ({ "id": key, "value": value, "order": 0 })))
+                ...situationArray
               ],
               "line_ref": "root"
             }
