@@ -23,7 +23,7 @@ router
     }
   })
   .get("/.well-known/test.json", (context) => {
-    constext.response.body = {"hey": "ho"}
+    context.response.body = {"hey": "ho"}
   })
 
 const app = new Application();
