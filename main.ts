@@ -18,6 +18,8 @@ router
     }
     const { situation } = body.value;
 
+    console.log("situation", situation);
+
     let response;
 
     try {
@@ -51,7 +53,7 @@ router
         })
       });
     } catch (error) {
-      context.throw(500, error);
+      context.throw(500);
     }
 
     if (response.status === 200) {
