@@ -21,10 +21,10 @@ router
     try {
       response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
           "x-api-key": "sJikTZ90JqzqpvIsarlIc7A3EtuyohHFrTTKcoJCBO4aGTvGwHplmo2k40bw",
-
         },
         body: JSON.stringify({
           "productId": "141434",
