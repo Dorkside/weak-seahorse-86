@@ -45,14 +45,14 @@ router
       })
     });
 
-    if (response.status === 200) {
-      const { result } = await response.json();
+    console.log("response", response);
 
-      console.log("result", result);
+    const { result } = await response.json();
 
-      context.response.status = 200;
-      context.response.body = result.nextQuestion;
-    }
+    console.log("result", result);
+
+    context.response.status = 200;
+    context.response.body = result.nextQuestion;
   })
   .get("/openapi.json", (context) => {
     context.response.body = openapi;
