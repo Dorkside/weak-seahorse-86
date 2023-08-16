@@ -1,19 +1,18 @@
-​
 {
     "schema_version": "v1",
     "name_for_human": "AXA",
     "name_for_model": "AXA",
-    "description_for_human" : "A plugin that allows the user to ask information about it's insurance policies.",
-    "description_for_model" : "Get an answer top question about your insurance policy, or declare a claim, perform a cover check",
+    "description_for_human": "A plugin that allows the user to ask information about it's insurance policies.",
+    "description_for_model": "Get an answer top question about your insurance policy, or declare a claim, perform a cover check",
     "auth": {
-        "type": "none"
+      "type": "none"
     },
     "api": {
-        "type": "openapi",
-        "url": "https://weak-seahorse-86.deno.dev/openapi.json",
-        "is_user_authenticated": false
+      "type": "openapi",
+      "url": "https://weak-seahorse-86.deno.dev/openapi.json",
+      "is_user_authenticated": false
     },
     "logo_url": "https://chatgptplugginone.herokuapp.com/logo.png",
     "contact_email": "support@example.com",
     "legal_info_url": "http://www.example.com/legal"
-}
+  }

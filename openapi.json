@@ -1,148 +1,147 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-      "title": "AXA",
-      "description": "A plugin that allows the user to check it's coverage in case of insurance claim according to his policy",
-      "version": "v1"
-    },
-    "servers": [
-      {
-        "url": "https://weak-seahorse-86.deno.dev"
-      }
-    ],
-    "paths": {
-      "/ask": {
-        "post": {
-          "operationId": "Get a coverage check",
-          "summary": "Get a cover check for a given situation. If a variable is missing, return the list of missing variable to come to a conclusion",
-          "requestBody": {
-            "description": "Optional description in *Markdown*",
-            "required": true,
+  "openapi": "3.0.1",
+  "info": {
+    "title": "AXA",
+    "description": "A plugin that allows the user to check it's coverage in case of insurance claim according to his policy",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://weak-seahorse-86.deno.dev"
+    }
+  ],
+  "paths": {
+    "/ask": {
+      "post": {
+        "operationId": "Get a coverage check",
+        "summary": "Get a cover check for a given situation. If a variable is missing, return the list of missing variable to come to a conclusion",
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/situation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/situation"
+                  "$ref": "#/components/schemas/ProductTypeResponse"
                 }
               }
-            }
-          },
-          "responses": {
-            "200": {
-              "description": "Successful response",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "$ref": "#/components/schemas/ProductTypeResponse"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "components": {
-      "schemas": {
-        "situation": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "id",
-              "value"
-            ],
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "The Id of the variable"
-              },
-              "value": {
-                "type": "string",
-                "description": "The value of the variable"
-              }
-            },
-            "description": "An array that contain a list of variable and their value describing a claim situation"
-          }
-        },
-        "ProductTypeResponse": {
-          "type": "object",
-          "properties": {
-            "allowMultiplePerClaim": {
-              "type": "boolean"
-            },
-            "id": {
-              "type": "string"
-            },
-            "answers": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Answer"
-              }
-            },
-            "lineRef": {
-              "type": "string"
-            },
-            "metadata": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/Metadata"
-              }
-            },
-            "possibleAnswers": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "priority": {
-              "type": "integer"
-            },
-            "source": {
-              "type": "string"
-            },
-            "type": {
-              "type": "string"
-            },
-            "order": {
-              "type": "integer"
-            }
-          }
-        },
-        "Answer": {
-          "type": "object",
-          "properties": {
-            "id": {
-              "type": "string"
-            },
-            "primaryKey": {
-              "type": "string"
-            },
-            "displayName": {
-              "type": "string"
-            },
-            "priority": {
-              "type": "integer"
-            },
-            "columns": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "Metadata": {
-          "type": "object",
-          "properties": {
-            "key": {
-              "type": "string"
-            },
-            "value": {
-              "type": "string"
             }
           }
         }
       }
     }
+  },
+  "components": {
+    "schemas": {
+      "situation": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "id",
+            "value"
+          ],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The Id of the variable"
+            },
+            "value": {
+              "type": "string",
+              "description": "The value of the variable"
+            }
+          },
+          "description": "An array that contain a list of variable and their value describing a claim situation"
+        }
+      },
+      "ProductTypeResponse": {
+        "type": "object",
+        "properties": {
+          "allowMultiplePerClaim": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string"
+          },
+          "answers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Answer"
+            }
+          },
+          "lineRef": {
+            "type": "string"
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Metadata"
+            }
+          },
+          "possibleAnswers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "source": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer"
+          }
+        }
+      },
+      "Answer": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "primaryKey": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "columns": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
   }
-  
+}
