@@ -14,29 +14,6 @@ router
     }
     const requestBody = await context.request.body().value;
 
-    console.log("claim", JSON.stringify({
-      "productId": "141434",
-      "release": "initial",
-      "policy": {
-        "endorsements": []
-      },
-      "match": [],
-      "claim": {
-        "lines": [
-          {
-            "state": [
-              { "id": "now", "value": 1692184507594, "order": -1 },
-              { "id": "today", "value": 1692144000000, "order": -1 },
-              ...Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
-            ],
-            "line_ref": "root"
-          }
-        ]
-      },
-      "ignoreTriggers": false,
-      "onlyNext": false
-    }));
-
     const response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
       method: "POST",
       mode: "no-cors",
@@ -57,7 +34,7 @@ router
               "state": [
                 { "id": "now", "value": 1692184507594, "order": -1 },
                 { "id": "today", "value": 1692144000000, "order": -1 },
-                ...requestBody.situation.map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
+                ...(requestBody.situation.map(([key, value]) => ({ "id": key, "value": value, "order": 0 })))
               ],
               "line_ref": "root"
             }
