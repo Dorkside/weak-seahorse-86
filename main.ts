@@ -16,7 +16,10 @@ router
     if (body.type !== "json") {
       context.throw(415);
     }
-    const { situation } = body.value;
+
+    console.log("body", body.value);
+
+    const { situation } = JSON.parse(body.value);
 
     console.log("situation", situation);
 
