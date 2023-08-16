@@ -57,7 +57,7 @@ router
               "state": [
                 { "id": "now", "value": 1692184507594, "order": -1 },
                 { "id": "today", "value": 1692144000000, "order": -1 },
-                ...Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
+                ...requestBody.situation.map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
               ],
               "line_ref": "root"
             }
