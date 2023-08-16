@@ -8,7 +8,7 @@ router
   .get("/", (context) => {
     context.response.body = "Welcome to the Ask API!";
   })
-  .get("/ask", (context) => {
+  .post("/ask", (context) => {
     context.response.body = "Situation is missing information. Does the user have EXTENDED_WARRANTY?";
   })
   .get("/openapi.json", (context) => {
