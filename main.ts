@@ -5,6 +5,9 @@ import apiPlugin from "./api-plugin.json" assert { type: "json" };
 
 const router = new Router();
 router
+  .get("/", (context) => {
+    context.response.body = "Welcome to the Ask API!";
+  })
   .get("/ask", (context) => {
     context.response.body = "Situation is missing information. Does the user have EXTENDED_WARRANTY?";
   })
