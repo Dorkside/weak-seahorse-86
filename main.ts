@@ -21,7 +21,10 @@ router
         context.response.body = "No dinosaurs found.";
       }
     }
-  });
+  })
+  .get("/.well-known/test.json", (context) => {
+    constext.response.body = {"hey": "ho"}
+  })
 
 const app = new Application();
 app.use(oakCors()); // Enable CORS for All Routes
