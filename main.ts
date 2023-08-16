@@ -14,11 +14,7 @@ router
     }
     const requestBody = await context.request.body().value;
 
-    console.log(requestBody.situation);
-
     const situationArray = Object.entries(requestBody.situation).map(([key, value]) => ({ "id": key, "value": value, "order": 0 }))
-
-    console.log("situationArray", situationArray);
 
     const response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
       method: "POST",
@@ -51,11 +47,7 @@ router
       })
     });
 
-    console.log("response", response);
-
     const result = await response.json();
-
-    console.log("result", result);
 
     context.response.status = 200;
     context.response.body = result.nextQuestion;
