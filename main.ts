@@ -14,8 +14,6 @@ router
     }
     const requestBody = await context.request.body().value;
 
-    console.log("situation", requestBody.situation);
-
     const response = await fetch("https://productmodeler.axa.com/api/v4/tenants/partners-motor-and-home/computation", {
       method: "POST",
       mode: "no-cors",
